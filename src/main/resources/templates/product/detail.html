@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  <th:block th:insert="fragments/header :: header"></th:block>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* list-style: none; */
+        }
+
+        .container ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container ul li {
+            list-style: none;
+            margin: 0;
+            /* padding: 0; */
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top:73px; 
+        }
+
+        .content {
+            width: 1290px;
+            height: 100%;
+    		overflow-y: hidden;
+        }
+
+        .content-top {
+            display: flex;
+            justify-content: center;
+		    height: 100%;
+		    overflow-y: hidden
+
+        }
+
+        .product-image {
+            display: flex;
+            /*  flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           background-color: aqua; 
+            width: 65%;*/
+            width: 52%;
+		    height: 100%;
+		    overflow-y: scroll;
+		    /*border-right: 1px solid #000;*/
+        }
+
+        .product-auction {
+		    display: flex;
+		    width: 48%;
+		    overflow-y: scroll;
+		    flex-direction: column;
+		    align-items: center;
+		   
+        }
+
+        .auction-wrapper {
+            width: 380px;
+            margin-top: 150px;
+            height: 1300px;
+        }
+
+        .content-top .product-image .image-thumbnail ul li {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border: solid 0.15rem rgb(0, 0, 0, 0.05);
+            transition: 0.2s;
+        }
+
+        .content-top .product-image .image-thumbnail ul li.active {
+            border: solid 0.15rem rgb(0, 0, 0, 0.4);
+        }
+
+        .image-thumbnail .thumbnail {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .image-thumbnail {
+            margin-right: 70px;
+        }
+        
+        .image-main {
+        	width: 100%;
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+        }
+
+        .product-image .main-image {
+
+            width: 450px;
+            height: 450px;
+            object-fit: contain;
+            border: 2px solid #000;
+            transition: opacity 0.5s;
+            margin-top: 5rem;
+        }
+        
+         .product-image .main-image:first-child {
+         	margin-top: 150px;
+         }
+
+
+        .bid-history ul {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .bid-history ul li {
+            width: calc(100%/3);
+        }
+
+
+
+        .bid-history ul li:nth-child(1)  {
+            text-align: start;
+
+        }
+        .bid-history ul li:nth-child(2)  {
+            text-align: right;
+            margin-right: 2.1rem;
+
+        }
+        .bid-history ul li:nth-child(3)  {
+            text-align: end;
+        }
+
+
+        .auction-info h4 {
+<!--            margin: 0;-->
+            position: relative;
+            display: inline-block;
+            border-bottom: 0.15rem solid black;
+            padding-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .info-row h4 {
+
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .auction-info.product > p {
+            color: #787878;
+            margin: 0.3rem 0.1rem;
+            font-size: 0.8rem;
+            /* font-weight: 600; */
+        }
+        /*
+
+        .auction-info .end-date {
+            width: 100%;
+            padding: 0.3rem 0;
+            color: #787878;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+
+        }*/
+
+
+
+
+
+         .bid-history {
+            border-top: 0.1rem solid #7f7f7f;
+            border-bottom: 0.1rem solid #7f7f7f;
+            margin: 1rem 0;
+            padding: 0.5rem 0;
+            color: rgb(0, 0, 0, 0.7);
+            font-size: 0.8rem;
+            font-weight: 600;
+            height: 9.1rem;
+            overflow: hidden;
+        }
+
+        .auction {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .auction-info .bid-input input {
+            width: 100%;
+            margin-top:0.2rem
+            padding: 0.3rem;
+            border: 0.1rem solid #e0e0e0;
+            font-size: 0.8rem;
+            color: rgb(0, 0, 0, 0.7);
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .auction-info .bid-input input:focus {
+            outline: none !important;
+            border-color: #787878;
+        }
+
+        .auction-info .bid-input input.active {
+            border-color: #787878;
+
+        }
+        
+        .auction-info.title {
+       	 position: relative;
+        }    
+
+
+
+        .auction-info .start-price {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            /* font-weight: 600; */
+            color: rgb(0, 0, 0, 0.7);
+            /* text-align: center; */
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .add-btn ul {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+
+        .auction.add-btn li {
+            width: calc(100%/6.2);
+            padding: 0.3rem 1rem;
+            text-align: center;
+            /* border: 0.1rem solid #000; */
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #efefef;
+            color: #787878;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-btn li:hover {
+            background: #787878;
+            color: #efefef;
+        }
+
+        .add-btn li:active {
+            background: #efefef;
+        }
+
+        /* .auction-wrapper{
+  display: flex;
+
+
+} */
+
+        .auction-info.bid {
+        box-shadow: 0 0 0.375rem 0.25rem rgba(161, 172, 184, 0.15);
+            
+        border: 1px solid;
+    	padding: 20px;
+        }
+
+        .auction-info .bid-btn {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .auction-info .bid-btn button {
+            background: #000000;
+            color: #e0e0e0;
+            padding: 0.2rem 1.3rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.1rem;
+            border: none;
+            box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+        }
+
+        /* ============= */
+        .info-row {
+			width: 85%;
+            margin-top: 7rem;
+
+        }
+
+        .info-row .info-detail {
+
+            display: flex;
+            /* background: red; */
+            height: 7rem;
+            width: 80%;
+        }
+
+        .info-left {
+            min-width: 9rem;
+            min-height: 9rem;
+            /* text-align: center; */
+
+        }
+
+        .info-left ul li {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .artist-image {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 9rem;
+            height: 9rem;
+            background: #7f7f7f;
+           box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.4);
+        }
+
+
+        .artist-image img {
+
+           	width: 100%;
+		    height: 100%;
+		    object-fit: contain;
+		    background: #fff
+        }
+
+        .content-bottom {
+            padding-bottom: 20rem;
+        }
+
+        .info-right {
+            margin-left: 5rem;
+        }
+
+        .info-right p {
+            margin: 0;
+            font-size: 0.8rem;
+            line-height: 1.7rem;
+        }
+
+        .info-detail .info-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.6rem;
+        }
+
+        h2 {
+            font-weight: 900;
+        }
+
+        h3 {
+            font-weight: 900;
+        }
+
+        .action {
+          text-align: center;
+        }
+
+        .action button {
+          width: 98%;
+            height: 2rem;
+            background: #000000;
+            color: #fff;
+            font-size: 0.9rem;
+            border: none;
+            /* letter-spacing: 0.1rem; */
+            font-weight: 600;
+        }
+
+
+
+        #modal-content {
+          font-size: 0.8rem;
+          font-weight: 600;
+          line-height: 2rem;
+          /* padding: 1rem; */
+        }
+
+        .modal-body{
+          padding : 2rem;
+        }
+
+        .action button {
+          width: 98%;
+            height: 2rem;
+            background: #000000;
+            color: #fff;
+            font-size: 0.9rem;
+            border: none;
+            /* letter-spacing: 0.1rem; */
+            font-weight: 600;
+            border-radius: 0;
+        }
+        .modal-header, .modal-footer,
+        .modal-content {
+          border: none;
+          border-radius: 0px;
+        }
+        
+        
+        #currPrice{
+        	transition: transform 1s ease-in-out;
+        	color: #000
+        }
+        
+        #currPrice.new{
+        	transition: transform 1s ease-in-out;
+        	color: #ff5d16;
+        }
+        
+        #currPrice.active{
+        	 transition: all 1s ease-in-out;
+		    color: #000; 
+        }
+        
+        
+        
+        .bid-history ul {
+        	 transition: transform 1s ease-in-out;
+        	 color: #000
+        	 
+        }
+        
+		
+        .auction.bid-history .new {
+		    transition: all 1s ease-in-out;
+		    color: #ff5d16; /* 초기 색상 설정 */
+		}
+		
+		.auction.bid-history .active {
+		    transform: translateY(-100%);
+		    transition: all 1s ease-in-out;
+		    color: #000; /* 서서히 검정색으로 변경 */
+		}
+		.bid-input span {
+			 color: rgb(0, 0, 0, 0.7);
+		    font-size: 0.8rem;
+		    font-weight: 600;
+		    padding: 0.2rem;
+		}
+		
+		.block {
+		
+		    margin-top: 400px;
+		}
+		
+		
+		
+	 .bid-history .animate {
+	 transform: translateY(0%);
+            animation: slide-up 1s forwards; /* Add slide-up animation */
+        }
+        
+        
+        
+      @keyframes slide-up {
+           to {
+             transform: translateY(0%);
+          }
+       }
+       
+       
+       	.like-btn{
+		    position: absolute;
+		    right: 0;
+		    top: 7px;
+			background: #fff;
+			color: #000;
+		    font-size: 0.8rem;
+		    width: 3rem;
+		    border: 0.13rem solid #000;
+		    font-weight: 600;
+		    letter-spacing: 0.06rem;
+		}
+	
+		.like-btn.active {
+			background: #000;
+			color: #fff
+		}
+		
+		.auction-info.date {
+	
+		    width: 100%;
+		    height: 3.5rem;
+		    background: black;
+		    margin-top: 3rem;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    color: white;
+		    font-size: 1rem;
+		    font-weight: 600;"
+		
+		}
+		
+		.auction.field {
+			border-bottom: 0.1rem solid #efefef;
+		    justify-content: space-between;
+		    display: flex;
+		    padding: 0.2rem;
+		    color: rgb(0, 0, 0, 0.7);
+		    font-size: 0.8rem;
+		    font-weight: 600;
+ 
+		}
+	 
+	
+	
+
+        @media (max-width: 900px) {
+            .content-top {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-image .main-image {
+                /*width: 90vw;*/
+            }
+
+            .product-image {
+                border-bottom: 0.1rem solid #7f7f7f;
+                width: 90vw;
+            }
+
+            .image-thumbnail {
+                display: none;
+            }
+
+            .content-bottom {
+                display: none;
+                ;
+            }
+
+            .product-auction {
+                width: auto;
+
+            }
+
+            .auction-wrapper {
+                width: 90vw;
+            }
+
+            .auction-info.bid {
+                /*margin-top: 3rem; */
+            }
+
+        }
+        .product-auction::-webkit-scrollbar,
+        .product-image::-webkit-scrollbar {
+		  display: none;
+		}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: none;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="content">
+        <div class="content-top">
+            <div class="product-image">
+            <!--  
+                <div class="image-thumbnail">
+                    <ul>
+                        <li th:each="image : ${product.images}">
+                            <img class="thumbnail" th:src="|/product/${product.productId}/image?filename=${image}|" alt="Thumbnail 1">
+                        </li>
+
+                    </ul>
+                </div>
+               -->
+                <div class="image-main">
+                <th:block th:each="image : ${product.images}">
+                    <img id="main-image" class="main-image" th:src="|/product/${product.productId}/image?filename=${image}|" alt="Main Image">
+                </th:block>
+                <div class="block">사랑해요</div>
+                </div>
+               
+            </div>
+            <div class="product-auction">
+                <div class="auction-wrapper">
+                    <div class="auction-info product" style="position: relative;">
+                        <h4 th:text="${product.productName}">--</h4>
+						<button class="like-btn" data-bs-target="#favoriteModal" data-bs-toggle="modal" th:value="${product.productId}" th:class="${product.favorite} ? 'like-btn active' : 'like-btn'">LIKE</button>
+                        <p th:text="${product.mnfctDate}" style="color: #787878;">--</p>
+                    </div>
+                    <div class="auction-info date" >
+                    	<th:block th:if="${product.auctionStatus == 'PENDING' }">
+						    <span style="margin-right: 1rem;">시작까지 남은 시간 &nbsp</span>
+						    <span style="letter-spacing: 1px;" id="diff" th:data-value="${product.startDiff}">00:00:00</span>
+					    </th:block>
+					     <th:block th:if="${product.auctionStatus == 'INBID' }">
+						    <span style="margin-right: 1rem;">종료까지 남은 시간 &nbsp</span>
+						    <span style="letter-spacing: 1px;" id="diff" th:data-value="${product.endDiff}">12:00:00</span>
+					    </th:block>
+						<th:block th:if="${product.auctionStatus == 'CONFIRM' }">
+						    <span style="margin-right: 1rem;"></span>
+					    </th:block>
+					    <th:block th:if="${product.auctionStatus == 'OUTBID' }">
+						    <span style="margin-right: 1rem;"> </span>
+					    </th:block>
+					</div>
+                    <div class="auction-info bid" >
+                    	<th:block th:if="${product.auctionStatus != 'OUTBID' }"> 
+                    	<div class="auction field current-price">
+                    		<span>현재가</span>
+                    	
+                    		<span id="currPrice" th:if="${product.bids != null and product.bids.size() > 0}" th:text="|${product.bids[0].bidPrice}원|"></span>
+                    		<span id="currPrice" th:if="${product.bids == null or product.bids.size() <= 0}">응찰자가 없습니다</span>
+                    	</div>
+                    	<div class="auction field start-price">
+                    		<span>시작가</span>
+                    		<span id="startPrice" th:text="|${product.startPrice}원|"></span>
+                    	</div>
+                    	 <div class="auction field start-date">
+                    		<span>시작 시간</span>
+                    		<span th:text="${product.startTime}"> </span>
+                    	</div>
+                    	 <div class="auction field end-date">
+                    		<span>종료 시간</span>
+                    		<span th:text="${product.endTime}"></span>
+                    	</div>
+                    	 <div class="auction bid-history" id="bidHistoryContainer">
+                            <ul th:each="bid : ${product.bids}">
+                                <li th:text="${bid.memberName}">
+                                </li>
+                                <li th:text="|${bid.bidPrice}원|">
+                                </li>
+                                <li th:text="${bid.bidDate}">
+                                </li>
+                            </ul>
+                            <ul th:each="count : ${#numbers.sequence(5 - #lists.size(product.bids), 1, -1)}">
+                                <li>--</li>
+                                <li>--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                                <li>--</li>
+                            </ul>
+                            <ul>
+                                <li>test</li>
+                                <li>test </li>
+                                <li>test</li>
+                            </ul>
+                        </div>
+                        </th:block>
+                
+                        <th:block th:if="${#strings.equals(product.auctionStatus, 'INBID')}">
+                        <th:block sec:authorize="isAuthenticated()">
+               
+                            <div class="auction bid-input">
+                                <input id="bid-input" type="number" placeholder="금액 입력">
+                            </div>
+                            <div class="auction add-btn">
+                                <ul>
+                                    <li style="width: 5rem;"><span class="add-value" value="10000" >1만+</span></li>
+                                    <li style="width: 5rem;"><span class="add-value" value="100000" >10만+</span></li>
+                                    <li style="width: 5rem;"><span class="add-value" value="1000000" >100만+</span></li>
+                                    <li style="width: 5rem;"><span class="add-value" value="10000000" >1000만+</span></li>
+                                </ul>
+
+                            </div>
+                            <div class="auction bid-btn">
+                                        <span style="
+									    font-size: 0.6rem;
+									    font-weight: 600;
+									    color: #212529;">
+									    * 만원 단위 이상만 입력 가능합니다.</span>
+                                <button id="addBidButton" th:value="${product.productId}">응찰</button>
+                            </div>
+                  
+                        </th:block>
+                       </th:block>
+                
+                       
+                     
+                          <div class="action" id="action">
+                              <button id="action-btn" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#auctionModal">
+                                  Login</button>
+                          </div>
+                 
+                    </div>
+                </div>
+                
+              <div class="info-row">
+                <h4>작품 정보</h4>
+                <div class="info-detail">
+                    
+                    <ul>
+                        <th:block th:switch="${product.type}">
+					        <li th:case="'painting'">Category : 그림</li>
+					        <li th:case="'pottery'">Category : 도자</li>
+					        <li th:case="'sculpture'">Category : 조각</li>
+					        <li th:case="'other'">Category : 기타</li>
+					        <li th:case="*">Category : 기타</li>
+					    </th:block>
+                        <li th:text="|Dimension : ${product.bulk}|">--</li>
+                        <li th:text="|Manufacturing Date :  ${product.mnfctDate}|">--</li>
+                    </ul>
+                </div>
+                 <p th:text="${product.explanation}">--</p>
+            </div>
+             <div class="info-row">
+                <h4>작가 정보</h4>
+                <div class="info-detail">
+                    <div class="info-left artist-image ">
+                        <img class="image" th:if="${product.memberImage != null}" th:src="|/member/image?filename=${product.memberImage}|"  alt="Artist Image">
+                        <img  th:if="${product.memberImage == null}"  th:src="@{/image/user/default.png}" alt="Artist Image">
+                    </div>
+                    <div class="info-right info-text">
+                        <ul>
+                            <li th:text="${product.memberName}"></li>
+                            <li th:text="${product.memberEmail}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+            <div class="block">연예가 중계</div>
+            
+                
+             <!-- end -->   
+            </div>
+ <!-- end -->  
+        </div>
+        
+ 
+    </div>
+</div>
+<div class="modal fade" id="auctionModal" aria-labelledby="exampleModalLabel" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:0; ">
+            <div class="modal-header py-4" style="border-radius:0; background: #000000;" >
+
+            </div>
+            <div class="modal-body py-4">
+                <span id="auction-msg"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-dark px-3" data-bs-dismiss="modal" style="border-radius:0; background: #000000; color: #efefef; font-size: 0.8rem; font-weight: 600;">닫기</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="username" th:data-value = "${#authentication.name}">
+
+<div class="modal fade" id="favoriteModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:0; ">
+            <div class="modal-header py-4" style="border-radius:0; background: #000000;" >
+
+            </div>
+            <div class="modal-body py-4">
+                <span id="favorite-msg"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-dark px-3" data-bs-dismiss="modal" style="border-radius:0; background: #000000; color: #efefef; font-size: 0.8rem; font-weight: 600;">닫기</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/request.js"></script>
+<!--***************************************!!!!!!!!!!중요!!!!!!!!!*******************************************-->
+<!--productId를 chat.html로 전달
+<script th:inline="javascript">
+const hiddenElement = document.getElementById('username');
+
+var memberName = hiddenElement;
+var productId = hiddenElement;
+</script>
+-->
+<!--**********************************************************************************-->
+
+<th:block th:replace=/product/chat :: chat></th:block>
+
+<script th:inline="javascript" defer>
+
+	//var productId = [[${product.productId}]];
+	//var memberName = [[${product.memberName}]];
+
+
+
+	//window.onload = function () {
+		const hiddenElement = document.getElementById('username');
+		
+		
+		
+		const currentUser = hiddenElement.getAttribute('data-value');
+		
+		const memberName = currentUser;
+	    let productId = [[${ product.productId }]];
+	    let auctionStatus = [[${ product.auctionStatus }]];
+	    let startTime = [[${ product.startTime }]];
+	    let memberEmail = [[${ product.memberEmail }]];
+	    console.log(auctionStatus);
+	    console.log(currentUser);
+	    
+	    /*
+	    let startDiff = [[${ product.startDiff }]];
+	    let endDiff = [[${ product.endDiff }]];
+	    */
+	    const diffElement = document.getElementById('diff');
+
+	    function updateCountdown() {
+	    	let timeDifferenceMillis = 0;
+	    	if(auctionStatus == 'PENDING'){
+	    		timeDifferenceMillis = parseInt(diffElement.getAttribute('data-value'), 10);
+	    	}else if(auctionStatus == 'INBID') {
+	    		timeDifferenceMillis = parseInt(diffElement.getAttribute('data-value'), 10);
+	    	}else {
+	    		return;
+	    	}
+	        if (timeDifferenceMillis <= 0) {
+	            console.log("카운트 완료");
+	            if(auctionStatus == 'PENDING'){
+	            	diffElement.innerText = "OPEN";
+	            	return;
+		    	}else if(auctionStatus == 'INBID') {
+		    		diffElement.innerText = "CLOSE";
+		    		return;
+		    	}
+				
+	        } else {
+	            const days = Math.floor(timeDifferenceMillis / (1000 * 60 * 60 * 24));
+	            const hours = Math.floor((timeDifferenceMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	            const minutes = Math.floor((timeDifferenceMillis % (1000 * 60 * 60)) / (1000 * 60));
+	            const seconds = Math.floor((timeDifferenceMillis % (1000 * 60)) / 1000);
+
+	            let countdownText = "";
+	            if (days > 0) {
+	                countdownText += 'D-' + days;
+	            }else {
+	                countdownText += (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+	            }
+
+	            diffElement.innerText = countdownText;
+	            
+	            timeDifferenceMillis -= 1000;
+	            diffElement.setAttribute('data-value', timeDifferenceMillis);
+	            
+	            setTimeout(() => updateCountdown(), 1000); 
+	        }
+	    }
+	    updateCountdown();
+	    
+	
+	
+	    // product_auction 테이블의 상태 값은 상품 경매에 대한 상태 값이다
+	    // pending - 경매 대기 (설정한 날짜에 미포함되어 경매가 대기 상태)
+	    // inbid 경매 진행 (설정한 날짜에 포함되어 경매가 진행 중)
+	    // confirm,경매 낙찰 (결제 / 미결제는 order table 값으로 확인)
+	    // outbid - 경매 유찰 (별도문의)
+		const actionElement = document.getElementById('action');
+	    const actionBtn = document.getElementById('action-btn');
+	    const auctionModalBody = document.getElementById('auction-msg');
+	    const bidHistory = document.querySelectorAll('.auction.bid-history ul li');
+	    const startPrice = document.querySelector('.auction.start-price span');
+	    const price = document.getElementById('startPrice');
+	    
+	    const endDate = document.querySelector('.auction.end-date span:last-child');
+	
+	
+	    if (currentUser == 'anonymousUser' && auctionStatus == 'INBID') {
+	        actionBtn.textContent = "로그인";
+	        actionBtn.addEventListener("click", sendToLogin);
+	
+	    }
+	    else if (currentUser != 'anonymousUser' && auctionStatus == 'INBID') {
+	    	actionElement.style.display = 'none';	
+	    }
+	    else if (auctionStatus == 'PENDING') {
+	        actionBtn.textContent = "경매 대기";
+	        auctionModalBody.innerHTML = "경매가 아직 시작되지 않았습니다. <br> 경매 시작일 : " + startTime;
+	    }
+	    else if (auctionStatus == 'CONFIRM') {
+	        actionBtn.textContent = "경매 종료";
+	        auctionModalBody.innerHTML = "경매가 종료 되었습니다.";
+	    }
+	    else if (auctionStatus == 'OUTBID') {
+	        actionBtn.textContent = "별도 문의";
+			/*
+	        bidHistory.forEach(li => {
+	            li.textContent = '--';
+	            li.style.opacity = '0.5';
+	        });
+	        endDate.textContent = '--';
+	        startPrice.textContent = '입찰 시작가 --';
+	        price.textContent = ""
+	        startPrice.style.opacity = '0.5';
+	        endDate.style.opacity = '0.5';
+	        */
+	        auctionModalBody.innerHTML = "작가 이메일로 문의 바랍니다. <br> 작가 이메일 : " + memberEmail;
+	    }
+	    function sendToLogin() { window.location.href = '/login' }
+	
+	
+	/*
+	    const thumbnails = document.querySelectorAll('.thumbnail');
+	    const mainImage = document.getElementById('main-image');
+	    let targetThumbnail = thumbnails[0];
+	    targetThumbnail.parentNode.classList.add('active');
+	    thumbnails.forEach(thumbnail => {
+	        thumbnail.addEventListener('click', changeImage);
+	    });
+	
+	    function changeImage(event) {
+	        const clickedThumbnail = event.target;
+	        const newImageSrc = clickedThumbnail.src;
+	        targetThumbnail.parentNode.classList.remove('active');
+	        event.target.parentNode.classList.add('active');
+	        targetThumbnail = event.target;
+	        mainImage.style.opacity = 0;
+	        setTimeout(() => {
+	            mainImage.src = newImageSrc;
+	            mainImage.style.opacity = 1;
+	        }, 150);
+	    }
+	
+	*/
+	
+	    const addValueButtons = document.querySelectorAll('.add-value');
+	    const bidInput = document.getElementById('bid-input');
+	    const currPrice = document.getElementById('currPrice'); 
+	    
+	    addValueButtons.forEach(btn => {
+	        btn.addEventListener('click', handleAddValueClick);
+	    });
+	
+	    function handleAddValueClick(event) {
+	        const valueToAdd = parseInt(event.target.getAttribute('value'));
+	        let currentValue = parseInt(bidInput.value);
+	        if (isNaN(currentValue)) {
+	            currentValue = 0;
+	        }
+	
+	        bidInput.classList.add('active');
+	        setTimeout(() => {
+	            bidInput.classList.remove('active');
+	        }, 150);
+	
+	
+	        const newValue = currentValue + valueToAdd;
+	        bidInput.value = newValue;
+	    }
+	    
+	    // Bidding History
+	    const bidHistoryContainer = document.getElementById("bidHistoryContainer");
+	    const addBidButton = document.getElementById("addBidButton");
+	    if(currentUser != 'anonymousUser') {
+		    // addBidButton.addEventListener("click", makeNewBid);
+	    }
+	   
+	    let num = 10000;
+
+	    function makeNewBid(data) {
+	    	console.log(data);
+	    	
+	        const newUl = document.createElement("ul");
+	        
+	
+	        const memberLi = document.createElement("li");
+	        memberLi.textContent = data.memberName;
+	        newUl.appendChild(memberLi);
+	
+	        const bidPriceLi = document.createElement("li");
+	        bidPriceLi.textContent = data.bidPrice + "원";
+	        newUl.appendChild(bidPriceLi);
+	
+	        const bidDateLi = document.createElement("li");
+	        bidDateLi.textContent = data.bidDate;
+	        newUl.appendChild(bidDateLi);
+	        
+	        currPrice.textContent = data.bidPrice + "원";
+	
+	        bidHistoryContainer.insertBefore(newUl, bidHistoryContainer.firstChild);
+	
+	        if (bidHistoryContainer.childElementCount > 5) {
+	            bidHistoryContainer.removeChild(bidHistoryContainer.lastChild);
+	        }
+	
+	        
+            setTimeout(() => {
+            	newUl.classList.add("animate");
+            }, 10); 
+            setTimeout(() => {
+            	newUl.classList.add("new");
+            	currPrice.classList.add("new");
+            }, 10)
+            setTimeout(() => {
+              	 newUl.classList.add("active");
+              	currPrice.classList.remove("new");
+            }, 1000); 
+	    }	 
+	
+	    const socket = new WebSocket('ws://192.168.10.132:8080/auction/' + productId);
+	
+	    socket.onopen = function (m) {
+	        let message = m;
+	        console.log(message);
+	    }
+	    
+	    socket.onmessage = function (event) {
+	    	let data = event.data;
+	    	 try {
+	    	        let bidding = JSON.parse(data);
+	    	        console.log("Received JSON object:", bidding);
+	    	        if(bidding != 0 && bidding != 1) {
+	    	        	   makeNewBid(bidding);
+	    	        }else if (bidding == 0){
+	    	        	let curr= currPrice.innerText;
+	    	    		auctionModalBody.innerHTML = "입찰가는 " + curr + " 보다 높아야 합니다.";
+	    	    		auctionModal.show();
+	    	        }else if (bidding == 1){
+	    	        	auctionModalBody.innerHTML = "연속으로 입찰할 수 없습니다.";
+	    	        	auctionModal.show();
+	    	        }
+	    	        
+	    	    } catch (error) {
+	    	        console.log("Received text message:", data);
+	    	    }
+
+	    };
+	    
+	    socket.onclose = function (event) {
+	    	let data = event.data;
+	        console.log(data);
+	    };
+	    
+	    const auctionModal = new bootstrap.Modal(document.getElementById("auctionModal"), {});
+
+
+	if(currentUser != 'anonymousUser' && auctionStatus != 'PENDING' && auctionStatus != 'OUTBID' && auctionStatus != 'CONFIRM'){
+	    addBidButton.onclick = function () {
+	    	let inputElement = document.getElementById('bid-input');
+	    	let inputValue = inputElement.value;
+	    	console.log(inputValue);
+	    	if(inputValue %10000 > 0) {
+	    		auctionModalBody.innerHTML = "입찰금액은 10000원 단위로 입력해 주세요.";
+	    		auctionModal.show();
+	    		bidInput.value= "";
+	    		return;
+	    	}else if(inputValue <= 0 || inputValue == null || inputValue == "") {
+	    		auctionModalBody.innerHTML = "입력란이 비어있습니다. <br>입찰하고자 하는 금액을 입력해 주세요.";
+	    		auctionModal.show();
+	    		return;
+	    	} else if(inputValue >= 2147483647) {
+	    		auctionModalBody.innerHTML = "2,147,483,647 보다 높을 수 없습니다.";
+	    		auctionModal.show();
+	    		return;
+	    	}
+	    	
+	    	
+	    	if (!Number.isNaN(bidInput.value)) { 
+	    		  let bidAmount = Number(inputValue);
+	    		  socket.send(bidAmount);
+	    		  bidInput.value= "";
+	    		} else {
+	    		  console.error("Is Not Integer");
+	    		}
+	       
+	    };
+	}
+	
+	
+	//=============================== Favorite ==================================================//
+    const likeBtns = document.querySelectorAll('.like-btn');
+    const favoriteBody = document.getElementById('favorite-msg');
+    likeBtns.forEach(l => l.addEventListener("click", updateLikeStatus));
+    
+    function updateLikeStatus() {
+        if(currentUser == 'anonymousUser') {
+
+            favoriteBody.innerHTML = "관심 상품 등록은 로그인이 필요합니다."
+            return;
+        }
+      
+        if (this.classList.contains('active')) {
+        	request.remove("/favorite/", productId, changeLikeBtn(this, "관심 상품이 삭제 되었습니다."), errorMsg());
+        } else {
+        	request.postWithParam("/favorite/", productId, changeLikeBtn(this, "관심 상품이 등록 되었습니다."), errorMsg());
+        }
+    }
+
+    function changeLikeBtn(element, successMsg) {
+    	element.classList.toggle("active");
+        favoriteBody.innerHTML = successMsg;
+    }
+    
+    function errorMsg(e) {
+    	console.log(e);
+    }
+	
+
+	
+	//}
+	
+	
+	
+</script>
+</body>
+
+</html>

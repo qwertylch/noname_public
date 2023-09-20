@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<form action="/sample/image" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadImage" multiple>
+</form>
+<button onclick="ggo()">submit</button>
+<div id="image-wrapper"></div>
+
+<script>
+    function ggo() {
+        const uploadImage = document.getElementsByName('uploadImage')[0];
+
+        const formData = new FormData();
+        formData.append("uploadImage", uploadImage.files[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "/sample/image",
+            processData: false,
+            contentType: false,
+            data: formData,
+            success: function(result) {
+                getImage(result);
+            },
+            error: function(err) {
+                console.log("err: ", err);
+            }
+        });
+    }
+
+    function getImage(result) {
+        $.ajax({
+            url: "/sample/image/" + result,
+            type: "get",
+            success: function(result) {
+                showImage(result);
+            },
+            error: function(err) {
+                console.log("err: ", err);
+            }
+        });
+    }
+
+    function showImage(images) {
+        const imageDivElement = document.getElementById('image-wrapper');
+        imageDivElement.innerHTML = "";
+
+        images.forEach(image => {
+        console.log(image);
+            let imgElement = document.createElement('img');
+            imgElement.setAttribute('src', '/sample/image?filename=' + encodeURIComponent(image.fileName));
+            imageDivElement.appendChild(imgElement);
+        });
+    }
+
+<!--    // Load images on page load-->
+<!--    $(document).ready(function() {-->
+<!--        getImage();-->
+<!--    });-->
+    </script>
+</body>
+</html>

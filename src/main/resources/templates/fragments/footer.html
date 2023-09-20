@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/view.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+
+<style>
+    footer {
+        background-color: #333;
+        padding: 50px 0;
+    }
+
+    footer p {
+        color: #888;
+        margin: 20px 0;
+    }
+</style>
+
+<th:block th:fragment="footer">
+
+<footer class="py-3 my-4 bg-dark" style="clear: both; text-align: center;">
+
+    <p class="text-center text-muted">© 2023 NONAME, Inc</p>
+    <p class="text-center text-muted">(주)nnm / 대표전화 : 1234-1234 / 팩스번호 : 1234-123-1234 / 주소 : 서울시 한강로3가 12-12 더조은타워 7 층
+    <p class="text-center text-muted">대표 이사 : 없음 / 개인 정보 책임자 : 없음 / E-MAIL : noname@noname.com / 사업자 등록 번호 : 123-12-12345</p>
+
+</footer>
+
+
+</th:block>
+</html>

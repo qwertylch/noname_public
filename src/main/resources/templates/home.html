@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/view.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 메인 컨텐츠 스타일 */
+        .main {
+            position: relative;
+        }
+
+        /* 메인 섹션 스타일 */
+        .main_section {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .section_title {
+            margin-bottom: 40px;
+        }
+
+        .section_title .tit1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section_title .tit2 {
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* 키워드 목록 스타일 */
+        #keyword_slider {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            align-items: flex-start;
+        }
+
+        #keyword_slider ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        #keyword_slider .item {
+            margin-right: 40px;
+            list-style: none;
+        }
+
+        #keyword_list {
+            text-align: center;
+        }
+
+        #keyword_list ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        #keyword_list li {
+            margin: 0 10px;
+        }
+
+        #keyword_list li a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        #keyword_list li.active a {
+            color: #ff8000;
+        }
+
+        /* 세 번째 메인 영역 스타일 */
+        .main3-container {
+            text-align: center;
+            margin: 20px 0;
+            max-width: 100%; /* 이미지 최대 너비 설정 */
+        }
+
+        .main3-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            max-height: 500px; /* 이미지 최대 높이 설정 */
+        }
+
+        /* 이미지 슬라이더 스타일 */
+        .slider-container {
+            position: relative;
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+
+        .slider {
+            display: block;
+            max-width: 100%;
+            position: relative;
+        }
+
+        .slider img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* 이미지 슬라이더 컨트롤 버튼 스타일 */
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            bottom: 60%;
+            left: 5%;
+            right: 5%;
+        }
+
+        .slider-controls button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 1px 30px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .prev-slide {
+            background: #000;
+            border: none;
+            width: 2rem;
+            height: 1rem;
+            transition: 0.3s;
+        }
+
+        .prev-slide:hover {
+            transform: rotate(-45deg);
+        }
+
+        .next-slide {
+            background: #000;
+            border: none;
+            width: 2rem;
+            height: 1rem;
+            transition: 0.3s;
+        }
+
+        .next-slide:hover {
+            transform: rotate(45deg);
+        }
+
+        .item a.inner img {
+            border: 15px solid transparent; /* 초기에는 투명한 테두리 설정 */
+            transition: border 0.3s ease; /* 테두리에 대한 스무스한 트랜지션 설정 */
+        }
+
+        .item a.inner:hover img {
+            border: 15px solid black; /* 클릭 시 검은색 테두리로 변경 */
+        }
+
+        /* 이미지 컨테이너 스타일 */
+        .image-container {
+            position: relative;
+        }
+
+        /* 텍스트 오버레이 스타일 */
+        .text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 텍스트 배경 색상과 투명도 설정 */
+            color: white; /* 텍스트 색상 설정 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* 초기에는 투명한 상태로 숨김 */
+            transition: opacity 0.3s ease; /* 투명도에 대한 스무스한 트랜지션 설정 */
+        }
+
+        /* 이미지 컨테이너에 마우스를 가져갔을 때 텍스트 오버레이 표시 */
+        .image-container:hover .text-overlay {
+            opacity: 1; /* 마우스를 가져갔을 때 텍스트 표시 */
+        }
+    </style>
+    <!-- 헤더 부분을 불러옵니다. -->
+    <th:block th:insert="fragments/header :: header"></th:block>
+
+</head>
+<body>
+
+<main>
+    <div class="slider">
+        <a th:href="@{https://www.art1.com/marketPlace/eventview.php?idx=270}"><img th:src="@{/image/mainimgs/main_01.jpg}" alt="Image 1"></a>
+        <a th:href="@{https://www.art1.com/marketPlace/eventview.php?idx=273}"><img th:src="@{/image/mainimgs/main_02.jpg}" alt="Image 2"></a>
+        <a th:href="@{/image3}"><img th:src="@{/image/mainimgs/main_03.jpg}" alt="Image 3"></a>
+        <a th:href="@{/image4}"><img th:src="@{/image/mainimgs/main_04.jpg}" alt="Image 4"></a>
+        <a th:href="@{/image5}"><img th:src="@{/image/mainimgs/main_05.jpg}" alt="Image 5"></a>
+    </div>
+    <div class="slider-controls">
+        <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</main>
+<main2>
+    <section class="main_section set_02">
+        <div class="section_title">
+            <div class="tit1">인기 경매 작품 추천</div>
+            <div class="tit2">경매중 작품 TOP3</div>
+        </div>
+        <div id="keyword_list">
+            <ul>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,1);">최근 경매 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,2);">랜덤 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,3);">최저가 경매 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,4);">최고가 경매 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,5);">원화 경매 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,6);">조각 경매 작품</a></li>
+                <li class="active"><a href="javascript:void(0);" onclick="art1Main.keyword(this,7);">인기 경매 작품</a></li>
+            </ul>
+        </div>
+        <div id="keyword_slider" style="display: flex; overflow-x: auto; align-items: flex-start;">
+            <ul style="display: flex;">
+                <li class="item">
+                    <a href="javascript:void(0);" class="inner" onclick="goods='3701'; marketViewMotion();">
+                        <div class="image-container">
+                            <img src="/image/mainimgs/th_yjh1 (1).jpg" />
+                            <div class="text-overlay">
+                                <div class="tit">향수 </div>
+                                <div class="name">김동규</div>
+                                <div class="size">80.3x90.8cm(30호)</div>
+                                <div class="price">₩3,500,000</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="javascript:void(0);" class="inner" onclick="goods='3701'; marketViewMotion();">
+                        <div class="image-container">
+                            <img src="/image/mainimgs/th_yjh17 (1).jpg" />
+                            <div class="text-overlay">
+                                <div class="tit">고흐 토끼</div>
+                                <div class="name">김원빈</div>
+                                <div class="size">72.3x90.8cm(20호)</div>
+                                <div class="price">₩1,500,000</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="javascript:void(0);" class="inner" onclick="goods='3701'; marketViewMotion();">
+                        <div class="image-container">
+                            <img src="/image/mainimgs/169051533782P4CV7MKM.jpg" />
+                            <div class="text-overlay">
+                                <div class="tit">The Punishment</div>
+                                <div class="name">이사라</div>
+                                <div class="size">72.3x90.8cm(30호)</div>
+                                <div class="price">₩2,500,000</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main2>
+<main3>
+    <div class="main3-container">
+        <img th:src="@{/image/mainimgs/section_banner_01.jpg}" alt="Image 6">
+    </div>
+</main3>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: false,
+                dots: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
+
+            $('.prev-slide').click(function() {
+                $('.slider').slick('slickPrev');
+            });
+
+            $('.next-slide').click(function() {
+                $('.slider').slick('slickNext');
+            });
+
+            $('.search button').click(function() {
+                $(this).parent().toggleClass('active');
+                $(this).prev('input[type="text"]').focus();
+            });
+        });
+    </script>
+
+<!-- 푸터 부분을 불러옵니다. -->
+<th:block th:insert="fragments/footer :: footer"></th:block>
+</body>
+</html>

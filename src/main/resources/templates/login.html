@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="fragments/header :: header"></th:block>
+<style>
+
+/* 네모칸 입력란 스타일 */
+.input_item input.input_txt {
+    border: none;
+    border-bottom: 1px solid #ccc; /* 밑줄 추가 */
+    padding: 10px; /* 간격을 조금 더 늘립니다 */
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px; /* 아래로 간격 추가 */
+}
+
+/* 로그인 버튼 스타일 */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 14px;
+}
+
+.content {
+    width: 100%;
+    max-width: 300px; /* 폼의 최대 너비 설정 */
+}
+
+.login_title img {
+    display: block;
+    margin: 0 auto; /* 가운데 정렬 */
+    max-width: 70%; /* 이미지 너비 조절 */
+    height: auto; /* 이미지 높이 자동 조절 */
+}
+
+/* 로그인 폼 컨테이너 간격 조절 */
+.container.login {
+    margin-top: -140px; /* 원하는 간격으로 조정 */
+}
+
+/* 로그인 버튼 스타일 */
+.login_btn_box button[type='submit'] {
+    background-color: transparent;
+    color: white; /* 버튼 텍스트 색상을 검은색으로 변경 */
+    border: 1px solid white; /* 테두리 추가 */
+}
+
+/* 마우스 호버 시 스타일 변경 */
+.login_btn_box button[type='submit']:hover {
+    background-color: black;
+    color: white;
+}
+
+.action_buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.action_buttons button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    color: black;
+    margin: 0 5px;
+}
+
+.action_buttons .separator {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/* 자동로그인 스타일 */
+.auto_login_box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.auto_login_box input {
+    margin-right: 5px;
+}
+</style>
+<div class="container login">
+    <div class="content sm">
+        <div class="login_area">
+            <h2 class="login_title">
+                <a th:href="@{/}"><img th:src="@{/image/mainimgs/logo_01.jpg}" alt="로고" /></a>
+            </h2>
+            <form action="/login" method="post">
+                <div class="has_button input_box">
+                    <h3 class="input_title">이메일 주소</h3>
+                    <div class="input_item">
+                        <input type="email" name="email" placeholder="예) abc@naver.com" autocomplete="off" class="input_txt">
+                        <button type="button" class="btn input_delete" style="display:none;">
+                            <!-- 삭제 아이콘 SVG 내용 여기에 -->
+                        </button>
+                    </div>
+                </div>
+                <div class="input_box has_button">
+                    <h3 class="input_title">비밀번호</h3>
+                    <div class="input_item">
+                        <input type="password" name="password" placeholder="" autocomplete="off" class="input_txt">
+                    </div>
+                </div>
+                <div class="auto_login_box">
+                    <input type="checkbox" name="remember-me" class="input_txt">
+                    <span>자동로그인</span>
+                </div>
+                <div class="login_btn_box">
+                    <button type="submit" class="btn">로그인</button>
+                </div>
+            </form>
+            <div class="action_buttons">
+                <a th:href="@{/new}" class="btn">이메일 가입</a>
+                <div class="separator">|</div>
+                <a th:href="@{/forgot-email}" class="btn">이메일 찾기</a>
+                <div class="separator">|</div>
+                <a th:href="@{/forgot-password}" class="btn">비밀번호 찾기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="fragments/footer :: footer"></th:block>
+</html>
