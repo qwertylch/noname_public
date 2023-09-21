@@ -293,8 +293,7 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
-
-
+<img src="https://i.imgur.com/oF2g0ck.gif" width="800px">
 
 
 
