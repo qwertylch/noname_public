@@ -297,7 +297,7 @@ WebSocket 연결이 열리면 onopen이 실행된다
 
 ***
 
-
+GIPHY CAPTURE
 
 
 
