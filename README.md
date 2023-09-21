@@ -123,7 +123,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 #### 경매 화면
 <br>
 
-<img src="https://imgur.com/DGCDZpb.gifv" width="800px" />
+<iframe class="imgur-embed" width="800" frameborder="0" src="https://i.imgur.com/DGCDZpb.gifv#embed"></iframe>
 <br>
 <br>
 <br>
