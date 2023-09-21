@@ -154,7 +154,10 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
-<img src="https://imgur.com/iTu1ow7.png" width="250px" /> <img src="https://imgur.com/VBAvkLC.png" width="250px" />
+<img src="https://imgur.com/iTu1ow7.png" width="350px" />
+<br>
+
+ <img src="https://imgur.com/VBAvkLC.png" width="350px" />
 <br>
 <br>
 <br>
