@@ -119,9 +119,12 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 ### Websocket & STOMP
 <br>
 <br>
+
 #### - WebSocket
+
 <img src="https://i.imgur.com/pkkpFvj.png" width="600px" />
 <br>
+
 클라이언트와 서버간의 실시간 양방향 통신을 위해서 
 WebSocket을 사용
 
@@ -138,6 +141,7 @@ WebSocket은 클라이언트와 서버(브라우저와 서버)를 연결하고
 
 <img src="https://i.imgur.com/YtQVOpU.png" width="600px" />
 <br>
+
 WebSocket 기반으로 각 Connection(연결)마다 
 WebSocketHandler를 구현해야 하지만
 
@@ -149,9 +153,18 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 
 ### 채팅
 #### 채팅 화면 (WebSocket + STOMP)
-<img src="https://i.imgur.com/Fav51Bp.gif" width="600px" />
+<img src="https://i.imgur.com/Fav51Bp.gif" width="400px" />
 <br>
+
 상품 경매할 때 해당 상품페이지에 들어와 있는 사람들간 자유로운 양방향 소통기능 구현
+<br>
+<br>
+
+************************
+<br>
+<br>
+
+
 
 ### 💰 경매
 <br>
