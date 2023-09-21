@@ -120,11 +120,11 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 <br>
 
 
-<img src="https://i.imgur.com/QAhRFJv.png" width="300px" />
+<img src="https://i.imgur.com/QAhRFJv.png" width="500px" />
 
 <br>
 
-![Imgur](https://i.imgur.com/Wh6VuMA.png)
+<img src="https://i.imgur.com/Wh6VuMA.png" width="500px" />
 
 
 <br>
@@ -139,7 +139,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 안드로이드 스튜디오 설정
 <br>
 
-![Imgur](https://i.imgur.com/Wh6VuMA.png)
+<img src="https://i.imgur.com/Wh6VuMA.png" width="500px" />
 
 
 <br>
