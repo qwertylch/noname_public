@@ -122,16 +122,13 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 
 #### 경매 화면
 <br>
-<br>
 
-
-***
 <img src="https://i.imgur.com/QAhRFJv.png" width="600px" />
 <br>
 <br>
 <br>
+<br>
 
-***
 
 
 WebSocket 연결이 열리면 onopen이 실행된다  
@@ -139,8 +136,11 @@ WebSocket 연결이 열리면 onopen이 실행된다
 사용자의 ID를 가져와서 인증 상태를 확인하고 메시지를 해당 세션으로 전송한다
 <br>
 <br>
+<br>
 
 <img src="https://imgur.com/udtJdlw.png" width="500px" />
+<br>
+<br>
 <br>
 <br>
 
@@ -152,10 +152,10 @@ WebSocket 연결이 열리면 onopen이 실행된다
  <img src="https://imgur.com/iEyP5TH.png" width="500px" />
 <br>
 <br>
+<br>
 
 <img src="https://imgur.com/iTu1ow7.png" width="250px" /> <img src="https://imgur.com/VBAvkLC.png" width="250px" />
 <br>
-
 <br>
 <br>
 
