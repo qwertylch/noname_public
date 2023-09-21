@@ -131,6 +131,8 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 <img src="https://i.imgur.com/DGCDZpb.gif" width="800px">
 
 
+<img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
+
 
 WebSocket 연결이 열리면 onopen이 실행된다  
 먼저, 해당 productId에 대한 세션을 auctions 맵에 저장 후  
