@@ -123,7 +123,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 #### 경매 화면
 <br>
 
-<img src="https://i.imgur.com/QAhRFJv.png" width="800px" />
+<img src="https://imgur.com/DGCDZpb.gifv" width="800px" />
 <br>
 <br>
 <br>
@@ -138,7 +138,7 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
-<img src="https://imgur.com/DGCDZpb.png" width="500px" />
+<img src="https://imgur.com/udtJdlw.png" width="500px" />
 <br>
 <br>
 <br>
