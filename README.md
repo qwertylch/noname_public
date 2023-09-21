@@ -123,8 +123,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 #### 경매 화면
 <br>
 
-<iframe class="imgur-embed" width="800" frameborder="0" src="https://i.imgur.com/DGCDZpb.gifv#embed"></iframe>
-<br>
+<img src="https://i.imgur.com/DGCDZpb.gif" width="800px">
 <br>
 <br>
 <br>
@@ -183,9 +182,10 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 <br>
-<br>
 
 1. 경매 입찰 상태 확인
+<br>
+
 - 자신이 입찰한 상품들을 전체 목록에서 확인 가능
 <br>
 <br>
@@ -194,10 +194,8 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 <br>
-<br>
 
 2. 최종 낙찰품 구매 가능
-<br>
 <br>
 
 - 경매 종료 시, 자신이 최고 입찰가인 경우 구매 가능
@@ -215,7 +213,6 @@ WebSocket 연결이 열리면 onopen이 실행된다
 
 3. 주문서 화면
 <br>
-<br>
 
 - 고객 기본 정보, 토스 페이먼츠 API 활용하여 주문서 화면 구성
 <br>
@@ -227,7 +224,6 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 
 4. 결제 완료 & 구매 내역
-<br>
 <br>
 
 - 결제 정보 인증 과정을 거쳐 최종적으로 구매 내역 화면 이동
