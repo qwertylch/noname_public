@@ -99,7 +99,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 <br>
 
 
-[Imgur](https://i.imgur.com/papbWZ0.png)
+[Imgur](https://i.imgur.com/papbWZ0.png)](https://imgur.com/papbWZ0)
 
 
 
@@ -120,7 +120,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 ### 안드로이드
 <br>
 
-[Imgur](https://i.imgur.com/Wh6VuMA.png)
+[Imgur](https://i.imgur.com/Wh6VuMA.png)](https://imgur.com/Wh6VuMA)
 
 
 <br>
