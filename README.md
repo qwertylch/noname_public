@@ -173,15 +173,13 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 #### 경매 화면
 <br>
 
+<img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
 
 <br>
 <br>
 <br>
 
-<img src="https://i.imgur.com/DGCDZpb.gif" width="800px">
 
-
-<img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
 
 
 WebSocket 연결이 열리면 onopen이 실행된다  
