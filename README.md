@@ -116,6 +116,43 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 ************
 <br>
 
+### Websocket & STOMP
+<br>
+<br>
+#### - WebSocket
+<img src="https://i.imgur.com/pkkpFvj.png" width="600px" />
+<br>
+클라이언트와 서버간의 실시간 양방향 통신을 위해서 
+WebSocket을 사용
+
+http, Ajax 또한 클라이언트와 서버의 소통은 가능하나
+클라이언트 쪽의 요청이 없으면 응답을 받을 수 없는 구조로
+실시간 데이터를 주고 받아야 하는 채팅, 경매에 있어 부적합함
+
+WebSocket은 클라이언트와 서버(브라우저와 서버)를 연결하고
+실시간으로 ‘양방향‘통신이 가능하도록하는 해주는 기능으로
+최초의 요청으로 연결이 되면 별도의 요청처리 없이 소통가능
+<br>
+
+#### - STOMP
+
+<img src="https://i.imgur.com/YtQVOpU.png" width="600px" />
+<br>
+WebSocket 기반으로 각 Connection(연결)마다 
+WebSocketHandler를 구현해야 하지만
+
+STOMP를 사용하면 @Controller 된 객체를 이용해
+보다 효율적으로 관리할 수 있다.
+
+STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 파싱하는 코드를 구현할 필요 없어져 코드가 간결해지
+<br>
+
+### 채팅
+#### 채팅 화면 (WebSocket + STOMP)
+<img src="https://i.imgur.com/Fav51Bp.gif" width="600px" />
+<br>
+상품 경매할 때 해당 상품페이지에 들어와 있는 사람들간 자유로운 양방향 소통기능 구현
+
 ### 💰 경매
 <br>
 <br>
@@ -165,6 +202,16 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
+### 갤러리
+
+#### 갤러리 화면 (+ 댓글)
+<img src="https://i.imgur.com/L2SaNPQ.gif" width="600px" />
+<br>
+매번 이미지를 불러 올 때 DB에 저장되어있는(회원이 첨부한 이미지) 이미지를 랜덤으로 가져와서 화면에 정렬
+
+<br>
+
+
 ************
 <br>
 
@@ -183,6 +230,7 @@ WebSocket 연결이 열리면 onopen이 실행된다
 ************
 
 ### 💵 결제 기능 구현
+<<<<<<< HEAD
 <br>
 <br>
 <br>
@@ -234,6 +282,21 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
+1. 경매 입찰 상태 확인
+- 자신이 입찰한 상품들을 전체 목록에서 확인 가능
+<img src="https://i.imgur.com/nfIV7WJ.png" width="800px">
+
+2. 최종 낙찰품 구매 가능
+- 경매 종료 시, 자신이 최고 입찰가인 경우 구매 가능
+<img src="https://i.imgur.com/BabthED.gif" width="800px">
+<img src="https://i.imgur.com/wmctpyu.png" width="800px">
+3. 주문서 화면
+- 고객 기본 정보, 토스 페이먼츠 API 활용하여 주문서 화면 구성
+<img src="https://i.imgur.com/cM2ITBz.gif" width="800px">
+
+4. 결제 완료 & 구매 내역
+- 결제 정보 인증 과정을 거쳐 최종적으로 구매 내역 화면 이동
+- 
 <img src="https://i.imgur.com/oF2g0ck.gif" width="800px">
 
 
