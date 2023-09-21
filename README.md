@@ -127,17 +127,17 @@ WebSocket 연결이 열리면 onopen이 실행된다
 사용자의 ID를 가져와서 인증 상태를 확인하고 메시지를 해당 세션으로 전송한다
 <br>
 
-<img src="https://imgur.com/udtJdlw" width="500px" />
+<img src="https://imgur.com/udtJdlw.png" width="500px" />
 <br>
 
 클라이언트로부터 입력값과 상품 아이디를 전달받은 후  
 값을 비교하여 메시지를 전달하거나 입찰가를 저장한다
 <br>
 
-<img src="https://imgur.com/vfumPJy" width="500px" />
+<img src="https://imgur.com/vfumPJy.png" width="500px" />
 <br>
 
-<img src="https://imgur.com/2xqEz9f" width="500px" /> <img src="https://imgur.com/iEyP5TH" width="500px" />
+<img src="https://imgur.com/2xqEz9f.png" width="500px" /> <img src="https://imgur.com/iEyP5TH.png" width="500px" />
 <br>
 
 <br>
