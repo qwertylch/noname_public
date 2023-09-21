@@ -116,6 +116,18 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 ************
 <br>
 
+
+### * WebSocket & STOMP
+#### - WebSocket
+<img src="https://i.imgur.com/pkkpFvj.png" width="600px" />
+
+#### - STOMP
+<img src="https://i.imgur.com/YtQVOpU.png" width="600px" />
+
+<br>
+
+### 채팅
+
 ### 경매
 <br>
 
