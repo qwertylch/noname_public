@@ -99,7 +99,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 <br>
 
 
-<img width="420" src="https://github.com/qwertylch/noname_public/assets/144990065/8a7f3238-5bed-477a-a6c5-25a4d305d363">
+[Imgur](https://i.imgur.com/papbWZ0.png)
 
 
 
@@ -120,7 +120,7 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 ### 안드로이드
 <br>
 
-<img width="420" src="https://user-images.githubusercontent.com/144990065/269481311-1c5b0d47-3ea1-40d0-b083-ffef2d0f5a36.png">
+[Imgur](https://i.imgur.com/Wh6VuMA.png)
 
 
 <br>
