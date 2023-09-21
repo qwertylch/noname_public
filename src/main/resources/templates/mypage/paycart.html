@@ -322,8 +322,8 @@
             paymentWidget.requestPayment({
                 orderId: orderId,            // 주문 ID(직접 만들어주세요)
                 orderName: orderName,        // 주문명
-                successUrl: 'http://192.168.10.132:8080/mypage/success',  // 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
-                failUrl: 'http://192.168.10.132:8080/pay/fail',        // 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
+                successUrl: 'http://localhost:8080/mypage/success',  // 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
+                failUrl: 'http://localhost:8080/pay/fail',        // 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
                 customerName: customerName
             })
         })

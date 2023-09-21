@@ -1034,7 +1034,7 @@ var productId = hiddenElement;
             }, 1000); 
 	    }	 
 	
-	    const socket = new WebSocket('ws://192.168.10.132:8080/auction/' + productId);
+	    const socket = new WebSocket('ws://localhost/auction/' + productId);
 	
 	    socket.onopen = function (m) {
 	        let message = m;
