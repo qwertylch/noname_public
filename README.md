@@ -293,22 +293,6 @@ WebSocket 연결이 열리면 onopen이 실행된다
 <br>
 <br>
 
-1. 경매 입찰 상태 확인
-- 자신이 입찰한 상품들을 전체 목록에서 확인 가능
-<img src="https://i.imgur.com/nfIV7WJ.png" width="800px">
-
-2. 최종 낙찰품 구매 가능
-- 경매 종료 시, 자신이 최고 입찰가인 경우 구매 가능
-<img src="https://i.imgur.com/BabthED.gif" width="800px">
-<img src="https://i.imgur.com/wmctpyu.png" width="800px">
-3. 주문서 화면
-- 고객 기본 정보, 토스 페이먼츠 API 활용하여 주문서 화면 구성
-<img src="https://i.imgur.com/cM2ITBz.gif" width="800px">
-
-4. 결제 완료 & 구매 내역
-- 결제 정보 인증 과정을 거쳐 최종적으로 구매 내역 화면 이동
-<img src="https://i.imgur.com/oF2g0ck.gif" width="800px">
-
 
 
 
