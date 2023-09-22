@@ -1,8 +1,8 @@
 package com.noname.enums;
 
 public enum ImageType {
-        USER("C:\\upload\\user\\"),
-        PRODUCT("C:\\upload\\product\\");
+        USER("/Users/buenhjcho/WebDevelop/02.personal/01.springjpa/workspace/upload/user"),
+        PRODUCT("/Users/buenhjcho/WebDevelop/02.personal/01.springjpa/workspace/upload");
 
         private final String uploadPath;
 
