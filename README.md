@@ -230,6 +230,7 @@ WebSocket 연결이 열리면 onopen이 실행된다
 ************
 
 ### 💵 결제 기능 구현
+<<<<<<< HEAD
 <br>
 <br>
 <br>
@@ -297,6 +298,11 @@ WebSocket 연결이 열리면 onopen이 실행된다
 - 결제 정보 인증 과정을 거쳐 최종적으로 구매 내역 화면 이동
 - 
 <img src="https://i.imgur.com/oF2g0ck.gif" width="800px">
+
+
+
+
+
 
 ***
 
