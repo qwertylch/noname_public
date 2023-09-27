@@ -145,10 +145,9 @@ public class ProductController {
     2. ProductImage에 product 객체 주고 해당하는 객체의 첫번째 이미지 조회
      */
     @GetMapping("/gallery")
-    private String getGallery(@RequestParam(name = "keyword", required = false)String keyword, Model model,
-                                @RequestParam(name = "authorName", required = false) String memberName){
+    private String getGallery(
+            @RequestParam(name = "keyword", required = false)String keyword, Model model){
 
-    	
         List<Product> foundProducts = null;
         // 넘어오는 키워드의 값이 '최신순' 과 같을 때
         if ("new".equals(keyword)) {

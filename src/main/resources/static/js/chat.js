@@ -53,6 +53,7 @@ jQuery(document).ready(function() {
             console.log("stompClient 초기화 아직 안돼어있음")
         }
     }
+
     // 팝업창 및 전체 화면에 동일하게 내용이 뿌려져야 된다.
     function showMessage(receivedMessage, memberName) {
         var messageElement = "<p class='chat-messages'>" + memberName + " : " + receivedMessage + "</p>"
@@ -76,12 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(msg !== ''){
                     sendMessage(msg, productId); // sendMessage 호출 메시지와 프로덕트 아이디 변수로 담아서 전달
                     msgInput.value = ''; // 입력창 초기화
-
-                    // 메시지 전송 후 마지막 메시지 위치로 스크롤 이동
-                    var msgArea = msgInput.closest(".chatbox-popup__footer , .chatbox-panel__footer").previousElementSibling;
-                    scrollToBottom(msgArea);
                 }
-
             }
         });
     });

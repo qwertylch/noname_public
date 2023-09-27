@@ -40,14 +40,15 @@ public class HomeController {
 
     // 로그인 폼 (로그인 처리는 시큐리티가 알아서)
     @GetMapping("/login")
-    public String loginForm(@ModelAttribute Member member, String prevPage) {return "/login";
+    public String loginForm(@ModelAttribute Member member, String prevPage) {
+        return "login";
     }
     // 로그아웃도 시큐리티가 알아서 : post요청이면 됨
 
     // 회원 가입
     @GetMapping("/new")
     public String newForm(@ModelAttribute Member member) {
-        return "/newForm";
+        return "newForm";
     }
 
 
@@ -60,7 +61,7 @@ public class HomeController {
         rttr.addAttribute("status", true); // 쿼리스트링으로 리다이렉트 뒤에 붙혀준다. ?status=true
         // html에서 status 꺼낼때 ${param.status}
         rttr.addAttribute("id", savedMember.getEmail()); // return하는 redirect 주소의 {id} 값 체워주기위해 rttr에 id 추가
-        return "redirect:/members/{id}"; // 회원 상세 페이지로 이동
+        return "redirect:members/{id}"; // 회원 상세 페이지로 이동
     }
 
     /*

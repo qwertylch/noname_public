@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# application.properties 파일 무시
+/Users/buenhjcho/WebDevelop/02.personal/01.springjpa/workspace/noname_public/src/main/resources/application.properties

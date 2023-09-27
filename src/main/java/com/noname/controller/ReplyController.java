@@ -18,15 +18,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReplyController {
 
-    final Long USER = 2L;
-
     private final ReplyService replyService;
 
     // 등록
     // 회원아이디 받아서 replyer에 넣어주는 처리 필요
     @PostMapping("/add")
     public ResponseEntity<String> addReply(@AuthenticationPrincipal CustomUser user, @ModelAttribute ReplyDTO replyDTO) {
-    	
     	if(user == null) {
     		new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	}
@@ -58,10 +55,4 @@ public class ReplyController {
         replyService.deleteReply(rid);
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
-
-
-
-
-
-
 }
