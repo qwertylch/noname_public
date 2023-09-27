@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../../sneat-1.0.0/assets/"
+        data-template="vertical-menu-template-free"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns="http://www.w3.org/1999/html">
+
+  <head>
+    <th:block th:insert="fragments/header :: header"></th:block>
+   
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+              href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+              rel="stylesheet"
+      />
+      <!-- Icons. Uncomment required icon fonts -->
+      <link rel="stylesheet" href="../../sneat-1.0.0/assets/vendor/fonts/boxicons.css" />
+      <!-- Core CSS -->
+      <link rel="stylesheet" href="../../sneat-1.0.0/assets/vendor/css/core.css" class="template-customizer-core-css" />
+      <link rel="stylesheet" href="../../sneat-1.0.0/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+      <link rel="stylesheet" href="../../sneat-1.0.0/assets/css/demo.css" />
+      <!-- Vendors CSS -->
+      <link rel="stylesheet" href="../../sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+      <link rel="stylesheet" href="../../css/modal.css"/>
+
+      <link rel="stylesheet" href="../css/gallery.css">
+
+      <!-- 스크립트 사용을 위해 무조건 들어가야된다. -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <!-- 벽돌쌓기 정렬 활용위한 추가 -->
+      <script src="../../sneat-1.0.0/assets/vendor/libs/masonry/masonry.js"></script>
+      <script src="../js/gallery.js"></script>
+
+  </head>
+  <body>
+  <div id="dataContainer">
+      <div class="gallery-sort">
+          <a class="sort-btn active" id="new" href="javascript:void(0);" th:onclick="getProducts('new')">최신 순</a>
+          <a class="sort-btn" id="old" href="javascript:void(0);" th:onclick="getProducts('old')">오래된 순</a>
+      </div>
+      </br>
+
+
+      <div class="row gy-4" data-masonry='{"percentPosition": true }'>
+          <!--리스트에 뿌려질 덩어리 : 이미지, 좋아요, 상세페이지링크..controller에서 받아온 products 객체를 products에 담는다-->
+          <div class="col-sm-6 col-lg-4" th:each="products : ${products}">
+              <div class="card">
+                  <!-- 타임리프에서 데이터 타입으로 전송을 해야 JS에서 받을수 있음...-->
+                  <!-- 모달창 열때 이미지, 타이틀, 이미지 고유번호 담아서 JS에 전달 -->
+                  <img class="gallery-images"
+                       th:data-product-image="${products.productImage}"
+                       th:data-product-name="${products.productName}"
+                       th:data-product-id="${products.productId}"
+                       onclick="showModal(this)"
+                       th:src="|/product/image?filename=${products.productImage}|"
+                       alt="gallery image"/>
+              </div>
+          </div>
+      </div>
+
+
+      <!-- 모달창 -->
+      <div id="gallery-modal" class="modal">
+          <div class="modal-content">
+              <span class="close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+              <div class="modal-split">
+
+                  <!-- 이미지 창 (모달_왼쪽) -->
+                  <div class="modal-left">
+                      <img id="modalImage" src="" alt="상세 이미지">
+                  </div>
+
+                  <!-- 리뷰 창 (모달_오른쪽) -->
+                  <div class="modal-right">
+                      <div class="row h-100 p-5">
+                          <h4 id="modalTitle"></h4>
+                          <div class="card-body h-70 ps ps--active-y" id="replyListDiv">
+                              <div class="ps__rail-y">
+                                  <div class="ps__thumb-y" tabindex="0"></div>
+                              </div>
+                          </div>
+
+                    <div class="form-group mt-4">
+                        <input id="newReplyer" type="hidden" name="replyer" class="form-control"/>
+                        <div class="row">
+                            <div class="col-lg-9 p-0">
+                                <input id="newReply" name="reply" class="form-control" placeholder="댓글 내용을 입력해주세요!"/>
+                            </div>
+                            <div class="col-lg-3 p-0  d-flex justify-content-end align-items-center">
+                                <button id="newReplySubmit" type="button" class="btn btn-dark">저장</button>
+                            </div>
+                        </div>
+                    </div>
+
+                            <!-- productId 값을 pid로 해서 hidden값으로 처리 -> 이벤트 등록, 및 조회 등 JS에서 value값으로 받아서 사용중 -->
+                            <input id="pid" name="productId" type="hidden" class="form-control" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  </body>
+</html>

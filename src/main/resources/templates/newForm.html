@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ <style>
+        .content {
+            width: 100%;
+            max-width: 300px; /* 폼의 최대 너비 설정 */
+        }
+        .input_item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .input_item .input_txt {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            outline: none;
+            width: 100%;
+            margin-right: 10px;
+        }
+        .input_item .btn {
+            color: black;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            width: 5.7rem;
+            /* padding: 0.2rem 0.9rem; */
+            height: 1.5rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .input_item .btn:hover {
+            border: 1px solid #000;
+            background : #000;
+            color: #fff;
+        }
+        .login_btn_box button {
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            width: 5.7rem;
+            height: 1.5rem;
+            font-size: 0.5rem;
+            font-weight: 600;
+            transition: 0.2s;
+            background-color: black;
+        }
+        .login_btn_box button:hover {
+            border: 1px solid #000;
+            background : #000;
+            color: #fff;
+        }
+        .login_title img {
+            display: block;
+            margin: 0 auto;
+            max-width: 70%;
+            height: auto;
+        }
+         .login_area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+        }
+        .container.login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        .input_box {
+            margin-bottom: 20px;
+        }
+        .input_title {
+            font-size: 0.9rem;
+        }
+    </style>
+
+
+
+<th:block th:insert="fragments/header :: header"></th:block>
+<div class="container login">
+    <div class="content sm">
+        <div class="login_area">
+            <h2 class="login_title">
+                <a th:href="@{/}"><img th:src="@{/image/mainimgs/logo_01.jpg}" alt="로고" /></a>
+            </h2>
+            <form action="/new" method="post"  id="new-form" class="has_button">
+                <div class="input_box">
+                    <h3 class="input_title">이메일 주소</h3>
+                    <div class="input_item">
+                        <input type="email" name="email" placeholder="예) abc@naver.com" autocomplete="off" class="input_txt">
+                        <button type="button" id="check-email" class="btn" onclick="checkEmail()">중복 확인</button>
+                    </div>
+                </div>
+
+                <div class="input_box">
+                    <h3 class="input_title">이름</h3>
+                    <div class="input_item">
+                        <input type="text" name="name" placeholder="이름을 입력하세요" class="input_txt">
+                    </div>
+                </div>
+
+                <div class="input_box">
+                    <h3 class="input_title">비밀번호</h3>
+                    <div class="input_item">
+                        <input type="password" name="password" placeholder="비밀번호를 입력하세요" class="input_txt">
+                    </div>
+                </div>
+
+                <div class="input_box">
+                    <h3 class="input_title">비밀번호 확인</h3>
+                    <div class="input_item">
+                        <input type="password" placeholder="비밀번호를 다시 입력하세요" class="input_txt">
+                    </div>
+                </div>
+
+                <div class="input_box">
+                    <h3 class="input_title">핸드폰 번호</h3>
+                    <div class="input_item">
+                        <input type="tel" name="phone" placeholder="핸드폰 번호를 입력하세요" class="input_txt">
+                        <button type="button" id="verify-phone" class="btn" onclick="verifyPhoneNumber()">번호 인증</button>
+                    </div>
+                </div>
+
+                <div class="login_btn_box">
+                    <button type="submit" class="btn full solid">회원가입</button>
+                </div>
+            </form>
+
+            <div class="action_buttons">
+                <a th:href="@{/login}" class="btn">이미 회원이신가요? 로그인</a>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:insert="fragments/footer :: footer"></th:block>
+
+
+
+
+</html>

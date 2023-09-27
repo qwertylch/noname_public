@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="layout/header :: header"></th:block>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://js.tosspayments.com/v1/payment-widget"></script>
+
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+    .sectionStyle{
+        padding: 24px;
+    }
+
+</style>
+<body>
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-2">결제 완료!</h4>
+    <!-- Layout Demo -->
+    <div>
+        <div class="card mb-4 w-auto">
+            <div class="card-body w-auto">
+                <div>
+                    <div>
+                        <section class="sectionStyle">
+                            <div><h4 class="fw-bold py-2 mb-2">상품 정보</h4></div>
+                            <div style="float:left; margin-right: 20px">
+
+                            </div>
+                            <div style="float:left">
+                                <h5 th:text="'상품명 : ' + ${result.getOrderName()}"></h5><br/>
+                                <h5 th:text="'상품가격 : ' + ${result.getAmount()} + '원'"></h5><br/>
+                            </div>
+                            <div style="clear:both"></div>
+                        </section>
+                        <div>
+                            <button type="button" class="btn btn-outline-dark" th:onclick="|location.href='@{/mypage/home}'|">돌아가기</button>
+                            <button type="button" class="btn btn-dark" th:onclick="|location.href='@{/mypage/successList}'|">목록으로</button>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <script th:inline="javascript">
+
+
+
+                </script>
+
+
+            </div>
+            <th:block th:replace="/layout/footer :: footer"></th:block>
+</html>

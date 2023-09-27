@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+
+
+<div class="container">
+    <form action="/sample/session" method="post">
+        <label for="memberSelect">Select a member:</label>
+        <select id="memberSelect" name="memberId">
+            <option th:each="member : ${members}" th:value="${member.memberId}" th:text="${member.memberName}"></option>
+        </select>
+        <button type="submit">submit</button>
+    </form>
+    <h2 th:text="|Session :  ${session.sid}|"></h2>
+    <h2 th:text="|Current Member ID :  ${sampleMember.memberId}|"></h2>
+    <h2 th:text="|Current Member Name :  ${sampleMember.memberName}|"></h2>
+<!--    <h2 th:text="${sampleMember.memberName}"></h2>-->
+
+    <button id="deleteBtn" type="button">delete</button>
+</div>
+    <script>
+
+    const deleteBtn = document.getElementById('deleteBtn');
+
+
+        deleteBtn.addEventListener('click', deleteSession);
+
+
+    function deleteSession() {
+
+    $.ajax({
+            url: '/sample/session',
+            type: 'DELETE',
+            success: function(data) {
+                console.log(data);
+             },
+            error: function(error) {
+                console.error('AJAX Error:', error);
+            }
+        });
+        }
+    </script>
+
+
+</body>
+</html>
