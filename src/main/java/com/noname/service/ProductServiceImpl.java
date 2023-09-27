@@ -87,9 +87,12 @@ public class ProductServiceImpl implements ProductService{
     public List<Auction> searchProductList(SearchProductDTO search, Pageable pageable, Long memberId){
         Specification<Product> spec = (root, query, criteriaBuilder) -> null;
         
-        Optional<ProductAuction> minBid = productAuctionRepository.findTopByOrderByStartPriceAsc();
+        Integer minBid = productAuctionRepository.findTopByOrderByStartPriceAsc();
         
-        Optional<Bidding> maxBid= biddingRepository.findTopByOrderByBidPriceDesc();        
+        Integer maxBid= biddingRepository.findTopByOrderByBidPriceDesc();
+        if(maxBid == null){
+            maxBid = 2100000000;
+        }       
     
         if(search.getName() != null) {
             spec = spec.and(ProductSpecification.containsName(search.getName()));
@@ -121,12 +124,12 @@ public class ProductServiceImpl implements ProductService{
 	    	if(search.getMinPrice() != null && search.getMaxPrice() != null) {
 	    		spec = spec.and(ProductSpecification.betweenPrice(search.getMinPrice(), search.getMaxPrice()));
 	    	}else if(search.getMinPrice() == null &&  search.getMaxPrice() != null) {
-	    		spec = spec.and(ProductSpecification.betweenPrice(minBid.get().getStartPrice().intValue(), search.getMaxPrice()));
+	    		spec = spec.and(ProductSpecification.betweenPrice(minBid, search.getMaxPrice()));
 	    	}else if(search.getMaxPrice() == null &&  search.getMinPrice() != null) {
-	    		spec = spec.and(ProductSpecification.betweenPrice(search.getMinPrice(), maxBid.get().getBidPrice()));
+	    		spec = spec.and(ProductSpecification.betweenPrice(search.getMinPrice(), maxBid));
 	    	}
 	    } else if (search.getMinPrice() == null && search.getMaxPrice() == null ) {
-	    	spec = spec.and(ProductSpecification.betweenPrice(minBid.get().getStartPrice().intValue(), maxBid.get().getBidPrice()));
+	    	spec = spec.and(ProductSpecification.betweenPrice(minBid, maxBid));
 	    } 
  
         List<Product> searched = productRepository.findAll(spec);
