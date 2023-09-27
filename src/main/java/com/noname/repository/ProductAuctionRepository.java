@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductAuctionRepository extends JpaRepository<ProductAuction,Long> {
 
-
-	public Optional<ProductAuction> findTopByOrderByStartPriceAsc(); 
+    @Query("SELECT MIN(p.startPrice) FROM ProductAuction p")
+    Integer findTopByOrderByStartPriceAsc();
 
 
 }

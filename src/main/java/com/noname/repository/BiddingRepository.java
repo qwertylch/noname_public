@@ -34,8 +34,9 @@ public interface BiddingRepository extends JpaRepository<Bidding, Long>{
     
     @Query("SELECT MAX(b.bidPrice) FROM Bidding b WHERE b.product = :product")
     public Optional<Integer> findMaxPriceByProduct(@Param("product") Product product);
-    
-    public Optional<Bidding> findTopByOrderByBidPriceDesc();
+
+    @Query("SELECT MAX(b.bidPrice) FROM Bidding b")
+    public Integer findTopByOrderByBidPriceDesc();
     
     @Query("SELECT NEW com.noname.dto.MaxBidPrice(MAX(b.bidPrice), b.member.memberId) "
     		+ "FROM Bidding b WHERE b.product = :product "
