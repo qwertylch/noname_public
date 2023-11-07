@@ -117,9 +117,8 @@ NONAME은 예술 시장을 혁신하고 다양한 아티스트들이 참여할 �
 <br>
 
 ### Websocket & STOMP
+#### - Websocket
 <br>
-<br>
-#### - WebSocket
 <img src="https://i.imgur.com/pkkpFvj.png" width="600px" />
 <br>
 클라이언트와 서버간의 실시간 양방향 통신을 위해서 
@@ -164,11 +163,6 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 <br>
 <br>
 <br>
-
-<img src="https://i.imgur.com/DGCDZpb.gif" width="800px">
-
-
-<img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
 
 
 WebSocket 연결이 열리면 onopen이 실행된다  
@@ -230,7 +224,6 @@ WebSocket 연결이 열리면 onopen이 실행된다
 ************
 
 ### 💵 결제 기능 구현
-<<<<<<< HEAD
 <br>
 <br>
 <br>
