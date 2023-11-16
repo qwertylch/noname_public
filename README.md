@@ -155,20 +155,26 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 상품 경매할 때 해당 상품페이지에 들어와 있는 사람들간 자유로운 양방향 소통기능 구현
 
 <br>
+<br>
+<br>
+<br>
+
 
 ### 💰 경매
 <br>
 
-<img src="https://i.imgur.com/QAhRFJv.png" width="700px" />
+<img src="https://i.imgur.com/QAhRFJv.png" width="600px" />
 
 <br>
 <br>
+<br>
+
 
 
 #### 경매 화면
 <br>
 
-<img src="https://i.imgur.com/Cifb1eI.gif" width="700px" />
+<img src="https://i.imgur.com/Cifb1eI.gif" width="600px" />
 
 <br>
 <br>
