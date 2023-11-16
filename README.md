@@ -161,6 +161,10 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 [Imgur](https://i.imgur.com/0QEhsqq.gifv)
 <img src="https://i.imgur.com/0QEhsqq.gif" width="600px" />
 
+<img src="https://i.imgur.com/0QEhsqq.gif" width="600px" />
+https://i.imgur.com/0QEhsqq.gif
+<a href="https://imgur.com/0QEhsqq"><img src="https://i.imgur.com/0QEhsqq.gif" title="source: imgur.com" /></a>
+
 <br>
 <br>
 <br>
