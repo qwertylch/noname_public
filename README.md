@@ -158,12 +158,17 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 
 ### 💰 경매
 <br>
+
+<img src="https://i.imgur.com/QAhRFJv.png" width="700px" />
+
 <br>
+<br>
+
 
 #### 경매 화면
 <br>
 
-<img src="https://i.imgur.com/QAhRFJv.png" width="700px" />
+<img src="https://github.com/qwertylch/noname_public/assets/144990065/0c83b295-bb36-4cc3-a290-0aad95f817e5" width="700px" />
 
 <br>
 <br>
