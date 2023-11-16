@@ -1,9 +1,19 @@
  
 <br>
 
-<img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
+[url=https://imgur.com/0QEhsqq][img]http://i.imgur.com/0QEhsqq.gif[/img][/url]
+
+
+
+[img]https://i.imgur.com/0QEhsqq.gif[/img]
+
+
+https://imgur.com/0QEhsqq
+
 
 <img src="https://i.imgur.com/0QEhsqq.gifv" width="800px">
+
+<img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
 
 
 <img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
