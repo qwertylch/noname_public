@@ -1,6 +1,13 @@
  
 <br>
 
+<img src="https://i.imgur.com/DGCDZpb.gif" width="800px">
+
+
+<img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
+
+
+
 # 프로젝트 - NONAME (무명)
 <br>
 <br>
