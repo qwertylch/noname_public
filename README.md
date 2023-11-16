@@ -3,7 +3,7 @@
 
 <img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
 
-<img src="https://i.imgur.com/0QEhsqq" width="800px">
+<img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
 
 
 <img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
