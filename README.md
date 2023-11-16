@@ -176,6 +176,10 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 
 <img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
 
+<img src="https://i.imgur.com/0QEhsqq.gif">
+
+https://imgur.com/0QEhsqq
+
 <br>
 
 #### 경매 화면
