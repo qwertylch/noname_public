@@ -1,23 +1,6 @@
  
 <br>
 
-[url=https://imgur.com/0QEhsqq][img]http://i.imgur.com/0QEhsqq.gif[/img][/url]
-
-
-
-[img]https://i.imgur.com/0QEhsqq.gif[/img]
-
-
-https://imgur.com/0QEhsqq
-
-
-<img src="https://i.imgur.com/0QEhsqq.gifv" width="800px">
-
-<img src="https://i.imgur.com/0QEhsqq.gif" width="800px">
-
-
-<img src="https://i.imgur.com/DGCDZpb.gif" width="800px" height="700px">
-
 
 
 # 프로젝트 - NONAME (무명)
@@ -185,12 +168,7 @@ https://imgur.com/0QEhsqq
 #### 경매 화면
 <br>
 
-[Imgur](https://i.imgur.com/0QEhsqq.gifv)
-<img src="https://i.imgur.com/0QEhsqq.gif" width="600px" />
-
-<img src="https://i.imgur.com/0QEhsqq.gif" width="600px" />
-https://i.imgur.com/0QEhsqq.gif
-<a href="https://imgur.com/0QEhsqq"><img src="https://i.imgur.com/0QEhsqq.gif" title="source: imgur.com" /></a>
+<img src="https://i.imgur.com/QAhRFJv.png" width="700px" />
 
 <br>
 <br>
