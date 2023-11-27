@@ -174,7 +174,7 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 <br>
 <br>
 
-<img src="https://i.imgur.com/IyWz7OT.gif" width="500px" />
+<img src="https://i.imgur.com/IyWz7OT.gif" width="400px" />
 
 
 <br>
