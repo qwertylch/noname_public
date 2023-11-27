@@ -150,7 +150,7 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 
 ### 채팅
 #### 채팅 화면 (WebSocket + STOMP)
-<img src="https://i.imgur.com/Fav51Bp.gif" width="600px" />
+<img src="https://i.imgur.com/Fav51Bp.gif" width="500px" />
 <br>
 상품 경매할 때 해당 상품페이지에 들어와 있는 사람들간 자유로운 양방향 소통기능 구현
 
@@ -162,19 +162,20 @@ STOMP를 사용하면 내장브로커를 활용해 메시지 전송 형식 및 �
 
 ### 💰 경매
 <br>
-
-<img src="https://i.imgur.com/QAhRFJv.png" width="600px" />
-
 <br>
 <br>
-<br>
-
 
 
 #### 경매 화면
 <br>
 
-<img src="https://i.imgur.com/Cifb1eI.gif" width="600px" />
+<img src="https://i.imgur.com/Cifb1eI.gif" width="500px" />
+
+<br>
+<br>
+
+<img src="https://i.imgur.com/IyWz7OT.gif" width="500px" />
+
 
 <br>
 <br>
